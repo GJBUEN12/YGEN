@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-right: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button.no {
+            background-color: #dc3545;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .response {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function handleResponse(responseValue) {
+            const responseText = responseValue === 'yes' ? 'Yes' : 'No';
+
+            // Update the value of response_text input field
+            document.getElementById('response-text-input').value = responseText;
+
+            // Hide buttons after response
+            document.getElementById('buttons-container').style.display = 'none';
+
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Optionally, you can submit the form programmatically if needed
+            // document.getElementById('apology-form').submit();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>I'm Sorry</h1>
+        <p>
+            My Ygen,
+        </p>
+        <p>
+            I want to take this moment to sincerely apologize for all the mistakes I've made and the hurt I've caused. 
+            I deeply regret my actions and the impact they've had on our relationship. 
+            You mean the world to me, and it pains me to see the trust between us has been destroyed.
+        </p>
+        <p>
+            I cherish every moment we’ve shared, from our joyous laughter to the quiet, tender moments. 
+            Your smile, your touch, and your love are irreplaceable treasures in my life. 
+            I am so grateful for you, and it breaks my heart to think I’ve let you down.
+        </p>
+        <p>
+            Please know that I am committed to making things right and earning back your trust. 
+            I am willing to do whatever it takes to prove my sincerity and dedication to you. 
+            I understand that words alone are not enough, and I am ready to show through my actions that I am worthy of your trust and love once more.
+        </p>
+        <p>
+            You are my soulmate, my best friend, and the love of my life. 
+            Losing you would be the greatest regret of my life, and I am determined to ensure that never happens. 
+            Together, I believe we can overcome this and come out stronger.
+        </p>
+        <p>
+            May I court you again and prove my love and commitment to you?
+        </p>
+        <div id="buttons-container">
+            <button type="button" onclick="handleResponse('yes')" class="button">Yes</button>
+            <button type="button" onclick="handleResponse('no')" class="button no">No</button>
+        </div>
+        <form id="apology-form" action="https://formspree.io/f/mqazkwea" method="POST">
+            <input type="hidden" name="_subject" value="Response">
+            <!-- Hidden field to capture the response text -->
+            <input type="hidden" name="response_text" id="response-text-input">
+        </form>
+        <div id="success-message" class="success-message">
+            Successfully submitted your answer!<span id="response-text" class="response"></span>
+        </div>
+    </div>
+</body>
+</html>
